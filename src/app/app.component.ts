@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   title = 'mealList';
   connected = "false"
 
-  configUrl = 'https://meal-list-backend.herokuapp.com/';
+  configUrl = 'https://meal-list-backend.herokuapp.com/gretting';
 
 
   constructor(private http: HttpClient) { }
@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
     this.http.get(this.configUrl).subscribe(
       (test) => {
         this.connected = "true";
-        console.log(test)
       },
       (fail) => {
         this.connected = "server is dead"
@@ -28,5 +27,4 @@ export class AppComponent implements OnInit {
       }
     );
   }
-
 }
