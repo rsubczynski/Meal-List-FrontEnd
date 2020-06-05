@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
 
   title = 'mealList';
-  connected = "false"
+  connected = "Disconnected"
 
   configUrl = 'https://meal-list-backend.herokuapp.com/gretting';
 
@@ -19,11 +19,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.http.get(this.configUrl).subscribe(
       (test) => {
-        this.connected = "true";
-      },
-      (fail) => {
-        this.connected = "server is dead"
-        console.log(fail)
+        this.connected = "Connected";
       }
     );
   }
