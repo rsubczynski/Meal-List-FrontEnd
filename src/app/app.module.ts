@@ -14,7 +14,8 @@ import {MenuModule} from 'primeng/menu';
 import { DishListComponent } from './dish-list/dish-list.component';
 import { IngrediendsListComponent } from './ingrediends-list/ingrediends-list.component';
 import { DishComponent } from './dish/dish.component';
-
+import {ChartModule} from 'primeng/chart';
+import { TableModule } from 'primeng/table';
 
 
 
@@ -35,6 +36,9 @@ import { DishComponent } from './dish/dish.component';
     HttpClientModule,
     AccordionModule,
     MenuModule,
+    ChartModule,
+    TableModule 
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

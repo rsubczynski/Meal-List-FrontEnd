@@ -7,9 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
+  }
+
+  data: any;
+
+  constructor() {
+      this.data = {
+          labels: ['Śniadanie','Drugie Sniadanie','Obiad', 'Kolacja'],
+          datasets: [
+              {
+                  data: [10, 20, 30, 40],
+                  backgroundColor: [
+                      "#FF6384",
+                      "#36A2EB",
+                      "#FFCE56",
+                      "#AFCE56"
+                  ],
+                  hoverBackgroundColor: [
+                      "#FF6384",
+                      "#36A2EB",
+                      "#FFCE56",
+                      "#AFCE56"
+                  ]
+              }]    
+          };
   }
 
 }
