@@ -1,8 +1,41 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DishComponent } from './dish/dish.component';
+import { IngrediendsListComponent } from './ingrediends-list/ingrediends-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DishListComponent } from './dish-list/dish-list.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'home',
+    component: DashboardComponent,
+    data: { page: 'Home page' }
+  },
+  {
+    path: 'dish',
+    component: DishComponent,
+  },
+  {
+    path: 'dish-list',
+    component: DishListComponent,
+  },
+
+  {
+    path: 'dish-ingrediends',
+    component: IngrediendsListComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

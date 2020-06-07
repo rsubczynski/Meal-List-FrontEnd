@@ -10,6 +10,12 @@ import {AccordionModule} from 'primeng/accordion';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
+import {MenuModule} from 'primeng/menu';
+import { DishListComponent } from './dish-list/dish-list.component';
+import { IngrediendsListComponent } from './ingrediends-list/ingrediends-list.component';
+import { DishComponent } from './dish/dish.component';
+
+
 
 
 @NgModule({
@@ -17,14 +23,18 @@ import { MenuComponent } from './menu/menu.component';
     AppComponent,
     DashboardComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    DishListComponent,
+    IngrediendsListComponent,
+    DishComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    AccordionModule
+    AccordionModule,
+    MenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
