@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mealList"
+    }
+  },
+  "defaultProject": "mealList",
+  "cli": {
+    "analytics": "ae9b8644-3115-4e27-8a36-3da775291080"
+  }
 }

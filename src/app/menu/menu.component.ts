@@ -18,7 +18,6 @@ export class MenuComponent {
       items: [
         { label: 'Starter', icon: 'pi pi-fw pi-globe', routerLink: '/home'},
         { label: 'Lista Dań', icon: 'pi pi-fw pi-list', routerLink: '/dish-list'},
-        { label: 'Lista składników', icon: 'pi pi-fw pi-info', routerLink: '/dish-ingrediends' },
         { label: 'Przykład', icon: 'pi pi-fw pi-plus', routerLink: '/dish' }
       ]
     }]

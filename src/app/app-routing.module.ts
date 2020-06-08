@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DishComponent } from './dish/dish.component';
-import { IngrediendsListComponent } from './ingrediends-list/ingrediends-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DishListComponent } from './dish-list/dish-list.component';
 
@@ -19,11 +18,6 @@ const routes: Routes = [
   {
     path: 'dish-list',
     component: DishListComponent,
-  },
-
-  {
-    path: 'dish-ingrediends',
-    component: IngrediendsListComponent,
   },
   {
     path: '',

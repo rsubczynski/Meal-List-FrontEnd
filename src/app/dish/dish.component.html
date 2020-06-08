@@ -1,46 +1,54 @@
-<h1>Owsianka z bananem, suszonymi śliwkami i migdałami</h1>
-<h3>WARTOŚCI ODŻYWCZE:</h3>
-<br>
-<h5>Energia: 575 kcal</h5>
+<p-panel>
+  <p-header>
+    <h1>Owsianka z bananem, suszonymi śliwkami i migdałami</h1>
+  </p-header>
+  <h3>WARTOŚCI ODŻYWCZE:</h3>
+  <br>
+  <h5>Energia: 575 kcal</h5>
 
-<p-table [value]="makro">
+  <p-table [value]="makro">
     <ng-template pTemplate="header">
-        <tr>
-            <th>Białko</th>
-            <th>Węglowodany</th>
-            <th>Tłuszcze</th>
-        </tr>
+      <tr>
+        <th>Białko</th>
+        <th>Węglowodany</th>
+        <th>Tłuszcze</th>
+      </tr>
     </ng-template>
     <ng-template pTemplate="body" let-makro>
-        <tr>
-            <td>{{makro.protein}}</td>
-            <td>{{makro.carbohydrate}}</td>
-            <td>{{makro.fat}}</td>
-        </tr>
+      <tr>
+        <td>{{makro.protein | gramPipe}}</td>
+        <td>{{makro.carbohydrate | gramPipe}}</td>
+        <td>{{makro.fat | gramPipe}}</td>
+      </tr>
     </ng-template>
-</p-table>
-<br>
+  </p-table>
+  <br>
 
-<h5>SKŁADNIKI:</h5>
+  <p-chart type="pie" [data]="chartData" height="20vh"></p-chart>
 
-<p-table [value]="ingredients">
+  <h5>SKŁADNIKI:</h5>
+
+  <p-table [value]="ingredients">
     <ng-template pTemplate="header">
-        <tr>
-            <th>Product</th>
-            <th>[g]</th>
-        </tr>
+      <tr>
+        <th>Produkty</th>
+        <th>Gramatura</th>
+      </tr>
     </ng-template>
     <ng-template pTemplate="body" let-ingredient>
-        <tr>
-            <td>{{ingredient.name}}</td>
-            <td>{{ingredient.gram}}</td>
-        </tr>
+      <tr>
+        <td>{{ingredient.name}}</td>
+        <td>{{ingredient.gram | gramPipe}}</td>
+      </tr>
     </ng-template>
-</p-table>
-<br>
+  </p-table>
+  <br>
 
-<h5>SPOSÓB PRZYGOTOWANIA:</h5>
-1. Płatki owsiane zalej niewielką ilością wrzątku, tuż nad poziom płatków.<br>
-2. Odstaw na 2-5 minut do napęcznienia.<br>
-3. Dodaj jogurt, banana pokrojonego w plastry i suszone śliwki.<br>
-4. Udekoruj danie posiekanymi migdałami.<br>
+  <h5>SPOSÓB PRZYGOTOWANIA:</h5>
+
+
+  <p-footer>
+    <div class="pdf">
+      <button pButton type="button" icon="pi pi-file-pdf" label="Pobierz" class="ui-button-success" ></button>
+    </div>
+  </p-footer>
