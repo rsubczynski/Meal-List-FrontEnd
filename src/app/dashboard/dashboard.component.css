@@ -4,3 +4,7 @@
 
 }
 
+::ng-deep .ui-button.ui-button-rounded {
+  margin-left: 10px;
+}
+

@@ -1,5 +1,22 @@
-<div class="center"> 
+<p-panel>
+  <p-header>
+    <h3>Aplikaja przechowuje dania które miałem na diecie, obecnie w bazie jest :</h3>
+  </p-header>
+  <div class="center">
     <br>
     <p-chart type="doughnut" [data]="data"></p-chart>
-</div>
-<span class="center-text">Diagram dań jakie posiadamy w bazie, .............................................................................</span>
+  </div>
+  <strong>Śniadania:</strong> 10<br>
+  <strong>Drugie śniadania:</strong> 20<br>
+  <strong>Obiady:</strong> 30<br>
+  <strong>Kolacja:</strong> 40<br>
+  <p-footer>
+    Losuj :
+
+    <button pButton type="button" label="Śniadanie" class="ui-button-rounded ui-button-success"></button>
+    <button pButton type="button" label="Drugie Śniadanie" class="ui-button-rounded ui-button-info"></button>
+    <button pButton type="button" label="Obiad" class="ui-button-rounded ui-button-warning"></button>
+    <button pButton type="button" label="Kolacja" class="ui-button-rounded ui-button-danger"></button>
+
+  </p-footer>
+</p-panel>

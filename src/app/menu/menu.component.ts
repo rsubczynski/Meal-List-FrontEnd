@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MenuItem} from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 import { RouterLink } from '@angular/router';
 
 
@@ -16,10 +16,10 @@ export class MenuComponent {
     this.items = [{
       label: 'Menu',
       items: [
-        { label: 'Starter', icon: 'pi pi-fw pi-globe', routerLink: '/home'},
-        { label: 'Lista Dań', icon: 'pi pi-fw pi-list', routerLink: '/dish-list'},
+        { label: 'Starter', icon: 'pi pi-fw pi-globe', routerLink: '/home' },
+        { label: 'Lista Dań', icon: 'pi pi-fw pi-list', routerLink: '/dish-list' },
         { label: 'Przykład', icon: 'pi pi-fw pi-plus', routerLink: '/dish' }
       ]
-    }]
+    }];
   }
 }
