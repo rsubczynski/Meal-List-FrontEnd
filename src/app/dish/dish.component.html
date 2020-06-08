@@ -1,8 +1,8 @@
 <p-panel>
   <p-header>
-    <h1>Owsianka z bananem, suszonymi śliwkami i migdałami</h1>
+    <h3>Owsianka z bananem, suszonymi śliwkami i migdałami</h3>
   </p-header>
-  <h3>WARTOŚCI ODŻYWCZE:</h3>
+  <h4>WARTOŚCI ODŻYWCZE:</h4>
   <br>
   <h5>Energia: 575 kcal</h5>
 
@@ -46,9 +46,12 @@
 
   <h5>SPOSÓB PRZYGOTOWANIA:</h5>
 
+  <span *ngFor="let recip of recipe">
+    {{ recip.step }}<br>
+  </span>
 
   <p-footer>
     <div class="pdf">
-      <button pButton type="button" icon="pi pi-file-pdf" label="Pobierz" class="ui-button-success" ></button>
+      <button pButton type="button" icon="pi pi-file-pdf" label="Pobierz" class="ui-button-success"></button>
     </div>
   </p-footer>
