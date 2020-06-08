@@ -1,3 +1,9 @@
-.pdf {
-  display:inline-block;margin-top:2px
-}
+
+
+@media (max-width: 550px) {
+  button {
+     width: 100%;
+     height: auto;
+     margin: 5px;
+   }
+ }

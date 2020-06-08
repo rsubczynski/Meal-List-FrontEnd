@@ -3,7 +3,7 @@
     <h2>Lista Dań</h2>
   </p-header>
   <p-table [value]="dishes" [columns]="cols" [paginator]="true" [rows]="20" [showCurrentPageReport]="true"
-    selectionMode="single" dataKey="name" (onRowSelect)="onRowSelect($event)" [resizableColumns]="true"
+    selectionMode="single" dataKey="name" (onRowSelect)="onRowSelect($event)" [resizableColumns]="true" [responsive]="true"
     [(selection)]="select">
     <ng-template pTemplate="header" let-columns>
       <tr>
@@ -17,6 +17,7 @@
     <ng-template pTemplate="body" let-rowData let-columns="columns">
       <tr [pSelectableRow]="rowData">
         <td *ngFor="let col of columns">
+          <span class="ui-column-title">{{col.header}}</span>
           {{rowData[col.field]}}
         </td>
       </tr>
