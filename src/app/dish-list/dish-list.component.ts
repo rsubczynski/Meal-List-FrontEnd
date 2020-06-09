@@ -22,7 +22,7 @@ export class DishListComponent {
   constructor() {
     this.dishes = [
       {
-        name: 'Owsianka z bananem, suszonymi śliwkami i migdałami 1',
+        name: 'Jajecznica',
         type: 'śniadanie',
         protein: 20,
         carbohydrate: 88,
@@ -30,7 +30,7 @@ export class DishListComponent {
         kcal: 575
       },
       {
-        name: 'Owsianka z bananem, suszonymi śliwkami i migdałami 2',
+        name: 'Omlet',
         type: 'śniadanie',
         protein: 20,
         carbohydrate: 90,
@@ -38,7 +38,7 @@ export class DishListComponent {
         kcal: 600
       },
       {
-        name: 'Owsianka z bananem, suszonymi śliwkami i migdałami 3',
+        name: 'Owsianka ',
         type: 'śniadanie',
         protein: 20,
         carbohydrate: 88,

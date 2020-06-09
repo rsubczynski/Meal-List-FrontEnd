@@ -7,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DishComponent {
 
-  makro = [{ protein: 20, carbohydrate: 88, fat: 16 }];
+  makro = [{ protein: 32, carbohydrate: 11, fat: 22 }];
   chartData: any;
   recipe = [
-    { step: '1. Płatki owsiane zalej niewielką ilością wrzątku, tuż nad poziom płatków.' },
-    { step: '2. Odstaw na 2-5 minut do napęcznienia.' },
-    { step: '3. Dodaj jogurt, banana pokrojonego w plastry i suszone śliwki.' },
-    { step: '4. Udekoruj danie posiekanymi migdałami' },
+    { step: '1. Wbij jajka' },
+    { step: '2. Wymieszaj.' },
+    { step: '4. Jedz' },
   ];
 
 
@@ -38,10 +37,6 @@ export class DishComponent {
   }
 
   ingredients = [
-    { name: 'Płatki gryczane', gram: 55 },
-    { name: 'Migdały', gram: 12 },
-    { name: 'Banan', gram: 170 },
-    { name: 'Suszone śliwki', gram: 25 },
-    { name: 'Jogurt naturalny 2%', gram: 210 },
+    { name: 'Jajka', gram: 55 },
   ];
 }
