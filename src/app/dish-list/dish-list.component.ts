@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SelectItem } from 'primeng/api/selectitem';
 
 @Component({
   selector: 'app-dish-list',
@@ -8,8 +9,13 @@ import { Component } from '@angular/core';
 export class DishListComponent {
 
   onRowSelect(event: any) {
-    console.log( event.data.name);
-}
+    console.log(event.data.name);
+  }
+
+  convertValue(event: any) {
+    return (<HTMLInputElement>event.target).value
+  }
+  colors: SelectItem[];
   select: any;
   dishes: { name: string; type: string; protein: number; carbohydrate: number; fat: number; kcal: number; }[];
   cols: { field: string; header: string; }[];
@@ -48,8 +54,22 @@ export class DishListComponent {
       { field: 'fat', header: 'Tłuszcz' },
       { field: 'kcal', header: 'Kcal' }
     ];
+
+
+    this.colors = [
+      { label: 'White', value: 'White' },
+      { label: 'Green', value: 'Green' },
+      { label: 'Silver', value: 'Silver' },
+      { label: 'Black', value: 'Black' },
+      { label: 'Red', value: 'Red' },
+      { label: 'Maroon', value: 'Maroon' },
+      { label: 'Brown', value: 'Brown' },
+      { label: 'Orange', value: 'Orange' },
+      { label: 'Blue', value: 'Blue' }
+    ];
+
   }
 
-
 }
+
 

@@ -18,6 +18,7 @@ import { TableModule } from 'primeng/table';
 import { GramPipePipe } from './pipes/gram-pipe.pipe';
 import {PanelModule} from 'primeng/panel';
 import {ButtonModule} from 'primeng/button';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 
 
@@ -40,7 +41,8 @@ import {ButtonModule} from 'primeng/button';
     ChartModule,
     TableModule,
     PanelModule,
-    ButtonModule
+    ButtonModule,
+    MultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

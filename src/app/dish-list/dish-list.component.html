@@ -1,10 +1,20 @@
 <p-panel>
+
   <p-header>
     <h2>Lista Dań</h2>
   </p-header>
-  <p-table [value]="dishes" [columns]="cols" [paginator]="true" [rows]="20" [showCurrentPageReport]="true"
-    selectionMode="single" dataKey="name" (onRowSelect)="onRowSelect($event)" [resizableColumns]="true" [responsive]="true"
-    [(selection)]="select">
+  <p-table #dt [value]="dishes" [columns]="cols" [paginator]="true" [rows]="20" [showCurrentPageReport]="true"
+    selectionMode="single" dataKey="name" (onRowSelect)="onRowSelect($event)" [resizableColumns]="true"
+    [responsive]="true" [(selection)]="select">
+
+    <ng-template pTemplate="caption">
+      <div style="text-align: right">
+        <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText size="50" placeholder="Wyszukaj"
+          (input)="dt.filterGlobal(convertValue($event), 'contains')" >
+      </div>
+    </ng-template>
+
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns" [pSortableColumn]="col.field">
@@ -13,6 +23,14 @@
           </p-sortIcon>
         </th>
       </tr>
+
+      <tr>
+        <th *ngFor="let col of columns" [ngSwitch]="col.field">
+          <input *ngSwitchCase="col.field" pInputText type="text"
+            (input)="dt.filter(convertValue($event), col.field, 'contains')">
+        </th>
+      </tr>
+
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
       <tr [pSelectableRow]="rowData">
