@@ -15,7 +15,7 @@ export class DishListComponent {
   convertValue(event: any) {
     return (<HTMLInputElement>event.target).value
   }
-  colors: SelectItem[];
+
   select: any;
   dishes: { name: string; type: string; protein: number; carbohydrate: number; fat: number; kcal: number; }[];
   cols: { field: string; header: string; }[];
@@ -54,20 +54,6 @@ export class DishListComponent {
       { field: 'fat', header: 'Tłuszcz' },
       { field: 'kcal', header: 'Kcal' }
     ];
-
-
-    this.colors = [
-      { label: 'White', value: 'White' },
-      { label: 'Green', value: 'Green' },
-      { label: 'Silver', value: 'Silver' },
-      { label: 'Black', value: 'Black' },
-      { label: 'Red', value: 'Red' },
-      { label: 'Maroon', value: 'Maroon' },
-      { label: 'Brown', value: 'Brown' },
-      { label: 'Orange', value: 'Orange' },
-      { label: 'Blue', value: 'Blue' }
-    ];
-
   }
 
 }

@@ -17,7 +17,9 @@ export class MenuComponent {
       label: 'Menu',
       items: [
         { label: 'Starter', icon: 'pi pi-fw pi-globe', routerLink: '/home' },
+        { label: 'Kreator Dań', icon: 'pi pi-fw pi-briefcase', routerLink: '/dish-creator' },
         { label: 'Lista Dań', icon: 'pi pi-fw pi-list', routerLink: '/dish-list' },
+        { label: 'Lista składników', icon: 'pi pi-fw pi-info', routerLink: '/composition-list' },
         { label: 'Przykład', icon: 'pi pi-fw pi-plus', routerLink: '/dish' }
       ]
     }];

@@ -1,0 +1,7 @@
+@media (max-width: 550px) {
+  button, input {
+     width: 100%;
+     height: auto;
+     margin: 5px;
+   }
+ }

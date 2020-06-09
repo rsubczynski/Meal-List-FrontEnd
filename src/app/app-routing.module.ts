@@ -1,3 +1,5 @@
+import { CompositionListComponent } from './composition-list/composition-list.component';
+import { DishCreatorComponent } from './dish-creator/dish-creator.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DishComponent } from './dish/dish.component';
@@ -16,8 +18,16 @@ const routes: Routes = [
     component: DishComponent,
   },
   {
+    path: 'dish-creator',
+    component: DishCreatorComponent,
+  },
+  {
     path: 'dish-list',
     component: DishListComponent,
+  },
+  {
+    path: 'composition-list',
+    component: CompositionListComponent,
   },
   {
     path: '',

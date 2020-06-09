@@ -19,6 +19,10 @@ import { GramPipePipe } from './pipes/gram-pipe.pipe';
 import {PanelModule} from 'primeng/panel';
 import {ButtonModule} from 'primeng/button';
 import {MultiSelectModule} from 'primeng/multiselect';
+import { CompositionListComponent } from './composition-list/composition-list.component';
+import { DishCreatorComponent } from './dish-creator/dish-creator.component';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -30,9 +34,12 @@ import {MultiSelectModule} from 'primeng/multiselect';
     MenuComponent,
     DishListComponent,
     DishComponent,
-    GramPipePipe  ],
+    GramPipePipe,
+    CompositionListComponent,
+    DishCreatorComponent  ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -42,7 +49,8 @@ import {MultiSelectModule} from 'primeng/multiselect';
     TableModule,
     PanelModule,
     ButtonModule,
-    MultiSelectModule
+    MultiSelectModule,
+    AutoCompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
