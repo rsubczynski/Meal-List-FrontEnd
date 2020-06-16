@@ -1,4 +1,6 @@
+import { ComponentsServiceService } from './../services/components/components-service.service';
 import { Component, OnInit } from '@angular/core';
+import { Ingredient } from '../entry/Ingredient';
 
 @Component({
   selector: 'app-composition-list',
@@ -7,33 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompositionListComponent implements OnInit {
 
-  onRowSelect(event: any) {
-    console.log(event.data.name);
-  }
-
-  convertValue(event: any) {
-    return (<HTMLInputElement>event.target).value
-  }
-
-  select: any;
-  dishes: { name: string; protein: number; carbohydrate: number; fat: number; kcal: number; }[];
+  dishes!: Ingredient[];
   cols: { field: string; header: string; }[];
-  constructor() {
-    this.dishes = [
-      {
-        name: 'Pomidor',
-        protein: 1,
-        carbohydrate: 4,
-        fat: 0,
-        kcal: 18
-      },
-      {
-        name: 'Ziemniak',
-        protein: 1.8,
-        carbohydrate: 15,
-        fat: 0.1,
-        kcal: 71
-      }];
+  constructor(componentsServiceService: ComponentsServiceService) {
+    componentsServiceService.getAllComponents().subscribe(dupa =>  this.dishes = dupa);
 
     this.cols = [
       { field: 'name', header: 'Nazwa' },
@@ -42,6 +21,13 @@ export class CompositionListComponent implements OnInit {
       { field: 'fat', header: 'Tłuszcz' },
       { field: 'kcal', header: 'Kcal' }
     ];
+  }
+  onRowSelect(event: any): void {
+    console.log(event.data);
+  }
+
+  convertValue(event: any): string {
+    return (event.target as HTMLInputElement).value;
   }
 
   ngOnInit(): void {

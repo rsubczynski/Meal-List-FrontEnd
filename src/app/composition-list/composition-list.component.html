@@ -5,7 +5,7 @@
   </p-header>
   <p-table #dt [value]="dishes" [columns]="cols" [paginator]="true" [rows]="20" [showCurrentPageReport]="true"
     selectionMode="single" dataKey="name" (onRowSelect)="onRowSelect($event)" [resizableColumns]="true"
-    [responsive]="true" [(selection)]="select">
+    [responsive]="true">
 
     <ng-template pTemplate="caption">
       <div style="text-align: right">
