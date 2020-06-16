@@ -28,7 +28,15 @@
       <tr [pSelectableRow]="rowData">
         <td *ngFor="let col of columns">
           <span class="ui-column-title">{{col.header}}</span>
-          {{rowData[col.field]}}
+
+          <container-element [ngSwitch]="col.field">
+            <div *ngSwitchCase="'name'">{{rowData[col.field]}}</div>
+            <div *ngSwitchCase="'protein'">{{rowData[col.field] | gramPipe}}</div>
+            <div *ngSwitchCase="'carbohydrate'">{{rowData[col.field] | gramPipe}}</div>
+            <div *ngSwitchCase="'fat'">{{rowData[col.field] | gramPipe}}</div>
+            <div *ngSwitchCase="'kcal'">{{rowData[col.field] | kcalPipe}}</div>
+          </container-element>
+
         </td>
       </tr>
     </ng-template>
