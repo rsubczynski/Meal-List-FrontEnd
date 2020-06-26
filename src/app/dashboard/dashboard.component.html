@@ -3,10 +3,10 @@
     <h3>Aplikaja przechowuje dania które miałem na diecie, obecnie w bazie jest :</h3>
   </p-header>
     <p-chart type="pie" [data]="data" height="20vh"></p-chart>
-  <strong>Śniadania:</strong> 10<br>
-  <strong>Drugie śniadania:</strong> 20<br>
-  <strong>Obiady:</strong> 30<br>
-  <strong>Kolacja:</strong> 40<br>
+  <strong>Śniadania:</strong> {{dataChart[0]}}<br>
+  <strong>Drugie śniadania:</strong> {{dataChart[1]}}<br>
+  <strong>Obiady:</strong> {{dataChart[2]}}<br>
+  <strong>Kolacja:</strong> {{dataChart[3]}}<br>
   <p-footer>
     <strong>Losowanie</strong>
     <br>

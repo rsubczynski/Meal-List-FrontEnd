@@ -12,7 +12,7 @@ export class ComponentsServiceService {
   ALL_COMPONENTS_LIST = environment.apiUrl +  'apiV1/ingredient';
 
   constructor(private http: HttpClient) {
-    console.log(environment.production); // Logs false for default environment
+    console.log(environment.production);
   }
 
   getAllComponents(): Observable<Ingredient[]> {

@@ -1,37 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { DashboardService } from './../services/dashboard/dashboard.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
-
-  ngOnInit(): void {
-  }
+export class DashboardComponent {
 
   data: any;
+  labels: string[] = [];
+  dataChart: number[] = [];
 
-  constructor() {
+  constructor(dashboardService: DashboardService) {
+    dashboardService.getDishSummary().subscribe(data => {
+      dashboardService.sortList(data).
+        forEach(row => {
+          this.labels.push(row.name),
+            this.dataChart.push(row.count);
+        });
+
       this.data = {
-          labels: ['Śniadanie', 'Drugie Sniadanie', 'Obiad', 'Kolacja'],
-          datasets: [
-              {
-                  data: [10, 20, 30, 40],
-                  backgroundColor: [
-                      '#FF6384',
-                      '#36A2EB',
-                      '#FFCE56',
-                      '#AFCE56'
-                  ],
-                  hoverBackgroundColor: [
-                      '#FF6384',
-                      '#36A2EB',
-                      '#FFCE56',
-                      '#AFCE56'
-                  ]
-              }]
-          };
+        labels: this.labels,
+        datasets: [
+          {
+            data: this.dataChart,
+            backgroundColor: [
+              '#FF6384',
+              '#36A2EB',
+              '#FFCE56',
+              '#AFCE56'
+            ],
+            hoverBackgroundColor: [
+              '#FF6384',
+              '#36A2EB',
+              '#FFCE56',
+              '#AFCE56'
+            ]
+          }]
+      };
+    });
   }
-
 }

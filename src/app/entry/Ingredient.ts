@@ -4,4 +4,4 @@ export interface Ingredient {
   carbohydrate: number;
   fat: number;
   kcal: number;
-};
+}
