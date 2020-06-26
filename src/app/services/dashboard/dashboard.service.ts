@@ -9,12 +9,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DashboardService {
-  DISH_CATEGORY_LIST = environment.apiUrl + 'apiV1/dish/dishCategory';
+  DISH_URL = environment.apiUrl + 'dish/';
+  DISH_CATEGORY_LIST_URL = this.DISH_URL + 'dishCategory';
 
   constructor(private http: HttpClient) { }
 
   getDishSummary(): Observable<DishSummary[]> {
-   return  this.http.get<DishSummary[]>(this.DISH_CATEGORY_LIST);
+   return  this.http.get<DishSummary[]>(this.DISH_CATEGORY_LIST_URL);
+  }
+
+  getRandomDishId(dishCategory: string): Observable<number> {
+    return this.http.get<number>('http://localhost:8080/apiV1/dish/random?type=' + dishCategory);
   }
 
   sortList(dataChart: DishSummary[]): DishSummary[] {

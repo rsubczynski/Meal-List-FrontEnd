@@ -17,7 +17,7 @@ export class DashboardComponent {
     {class: 'ui-button-rounded ui-button-warning'},
     {class: 'ui-button-rounded ui-button-danger'}];
 
-  constructor(dashboardService: DashboardService) {
+  constructor(private dashboardService: DashboardService) {
     dashboardService.getDishSummary().subscribe(data => {
       this.dataChart = dashboardService.sortList(data);
       this.data = {
@@ -43,7 +43,12 @@ export class DashboardComponent {
   }
 
   handleRandomClick(categoryEnum: string): void {
-    console.log(categoryEnum);
+    this.dashboardService.getRandomDishId(categoryEnum)
+    .subscribe(
+      id => console.log(id),
+      error => console.log(console.log(error)
+      )
+    );
 }
 
 }
