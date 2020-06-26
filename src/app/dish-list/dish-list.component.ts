@@ -14,31 +14,8 @@ export class DishListComponent {
   cols: { field: string; header: string; }[];
 
   constructor(dishService: DishListService) {
-    this.dishes = [
-      {
-        name: 'Jajecznica',
-        type: 'śniadanie',
-        protein: 20,
-        carbohydrate: 88,
-        fat: 16,
-        kcal: 575
-      },
-      {
-        name: 'Omlet',
-        type: 'śniadanie',
-        protein: 20,
-        carbohydrate: 90,
-        fat: 16,
-        kcal: 600
-      },
-      {
-        name: 'Owsianka ',
-        type: 'śniadanie',
-        protein: 20,
-        carbohydrate: 88,
-        fat: 16,
-        kcal: 700
-      }];
+    dishService.getAllDishes().subscribe(data => this.dishes = data)
+
 
     this.cols = [
       { field: 'name', header: 'Nazwa' },
