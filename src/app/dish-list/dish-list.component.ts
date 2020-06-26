@@ -1,5 +1,6 @@
+import { DishListService } from './../services/dish-list-service/dishList.service';
+import { Dish } from './../entry/Dish';
 import { Component } from '@angular/core';
-import { SelectItem } from 'primeng/api/selectitem';
 
 @Component({
   selector: 'app-dish-list',
@@ -8,18 +9,11 @@ import { SelectItem } from 'primeng/api/selectitem';
 })
 export class DishListComponent {
 
-  onRowSelect(event: any) {
-    console.log(event.data.name);
-  }
-
-  convertValue(event: any) {
-    return (<HTMLInputElement>event.target).value
-  }
-
   select: any;
-  dishes: { name: string; type: string; protein: number; carbohydrate: number; fat: number; kcal: number; }[];
+  dishes: Dish[] = [];
   cols: { field: string; header: string; }[];
-  constructor() {
+
+  constructor(dishService: DishListService) {
     this.dishes = [
       {
         name: 'Jajecznica',
@@ -54,6 +48,14 @@ export class DishListComponent {
       { field: 'fat', header: 'Tłuszcz' },
       { field: 'kcal', header: 'Kcal' }
     ];
+  }
+
+  convertValue(event: any): string {
+    return (<HTMLInputElement>event.target).value
+  }
+
+  onRowSelect(event: any): void {
+    console.log(event.data.name);
   }
 
 }
