@@ -1,5 +1,6 @@
 import { DashboardService } from './../services/dashboard/dashboard.service';
 import { Component } from '@angular/core';
+import { DishSummary } from '../entry/DishSummary';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,22 +10,21 @@ import { Component } from '@angular/core';
 export class DashboardComponent {
 
   data: any;
-  labels: string[] = [];
-  dataChart: number[] = [];
+  dataChart: DishSummary[] = [];
+  buttonColoursClass = [
+    {class: 'ui-button-rounded ui-button-success'},
+    {class: 'ui-button-rounded ui-button-info'},
+    {class: 'ui-button-rounded ui-button-warning'},
+    {class: 'ui-button-rounded ui-button-danger'}];
 
   constructor(dashboardService: DashboardService) {
     dashboardService.getDishSummary().subscribe(data => {
-      dashboardService.sortList(data).
-        forEach(row => {
-          this.labels.push(row.name),
-            this.dataChart.push(row.count);
-        });
-
+      this.dataChart = dashboardService.sortList(data);
       this.data = {
-        labels: this.labels,
+        labels: this.dataChart.map(row => row.name),
         datasets: [
           {
-            data: this.dataChart,
+            data: this.dataChart.map(row => row.count),
             backgroundColor: [
               '#FF6384',
               '#36A2EB',
@@ -41,4 +41,9 @@ export class DashboardComponent {
       };
     });
   }
+
+  handleRandomClick(categoryEnum: string): void {
+    console.log(categoryEnum);
+}
+
 }

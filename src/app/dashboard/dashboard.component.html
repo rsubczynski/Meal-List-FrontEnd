@@ -3,18 +3,15 @@
     <h3>Aplikaja przechowuje dania które miałem na diecie, obecnie w bazie jest :</h3>
   </p-header>
     <p-chart type="pie" [data]="data" height="20vh"></p-chart>
-  <strong>Śniadania:</strong> {{dataChart[0]}}<br>
-  <strong>Drugie śniadania:</strong> {{dataChart[1]}}<br>
-  <strong>Obiady:</strong> {{dataChart[2]}}<br>
-  <strong>Kolacja:</strong> {{dataChart[3]}}<br>
+
+    <div *ngFor="let row of dataChart">
+      <strong>{{row.name}}:</strong> {{row.count}}<br>
+    </div>
   <p-footer>
     <strong>Losowanie</strong>
-    <br>
-    <br>
-    <button pButton type="button" label="Śniadanie" class="ui-button-rounded ui-button-success"></button>
-    <button pButton type="button" label="Drugie Śniadanie" class="ui-button-rounded ui-button-info"></button>
-    <button pButton type="button" label="Obiad" class="ui-button-rounded ui-button-warning"></button>
-    <button pButton type="button" label="Kolacja" class="ui-button-rounded ui-button-danger"></button>
+    <td *ngFor="let row of dataChart; index as i">
+      <p-button  label={{row.name}} (onClick)="handleRandomClick(row.categoryEnum)" [styleClass]="buttonColoursClass[i].class" ></p-button>
+    </td>
 
   </p-footer>
 </p-panel>
