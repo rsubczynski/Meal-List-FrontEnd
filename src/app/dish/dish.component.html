@@ -1,10 +1,15 @@
 <p-panel>
+
   <p-header>
-    <h3>Jajecznica</h3>
+    <div *ngIf="makro">
+      <h3>{{makro.name}}</h3>
+    </div>
   </p-header>
   <h4>WARTOŚCI ODŻYWCZE:</h4>
   <br>
-  <h5>Energia: 575 kcal</h5>
+  <div *ngIf="makro">
+    <h5>Energia: {{makro.kcal}} kcal</h5>
+  </div>
 
   <p-table [value]="makro">
     <ng-template pTemplate="header">
@@ -46,10 +51,11 @@
 
   <h5>SPOSÓB PRZYGOTOWANIA:</h5>
 
-  <span *ngFor="let recip of recipe">
-    {{ recip.step }}<br>
+  <span *ngFor="let recip of recipe; index as i">
+    {{i+1}}: {{ recip }}<br>
   </span>
 
   <p-footer>
-      <button pButton type="button" icon="pi pi-file-pdf" label="Pobierz" class="ui-button-rounded ui-button-success"></button>
+    <button pButton type="button" icon="pi pi-file-pdf" label="Pobierz"
+      class="ui-button-rounded ui-button-success"></button>
   </p-footer>

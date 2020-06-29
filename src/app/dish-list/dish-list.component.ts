@@ -1,5 +1,5 @@
 import { DishListService } from './../services/dish-list-service/dishList.service';
-import { Dish } from './../entry/Dish';
+import { DishMakro } from '../entry/DishMakro';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,11 +10,11 @@ import { Component } from '@angular/core';
 export class DishListComponent {
 
   select: any;
-  dishes: Dish[] = [];
+  dishes: DishMakro[] = [];
   cols: { field: string; header: string; }[];
 
   constructor(dishService: DishListService) {
-    dishService.getAllDishes().subscribe(data => this.dishes = data)
+    dishService.getAllMakroDishes().subscribe(data => this.dishes = data);
 
 
     this.cols = [
