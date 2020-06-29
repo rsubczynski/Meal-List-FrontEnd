@@ -1,6 +1,7 @@
 import { DishListService } from './../services/dish-list-service/dishList.service';
 import { DishMakro } from '../entry/DishMakro';
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dish-list',
@@ -12,8 +13,9 @@ export class DishListComponent {
   select: any;
   dishes: DishMakro[] = [];
   cols: { field: string; header: string; }[];
+  selectedRowItem = {};
 
-  constructor(dishService: DishListService) {
+  constructor(dishService: DishListService, private router: Router) {
     dishService.getAllMakroDishes().subscribe(data => this.dishes = data);
 
 
@@ -28,11 +30,15 @@ export class DishListComponent {
   }
 
   convertValue(event: any): string {
-    return (<HTMLInputElement>event.target).value
+    return (event.target as HTMLInputElement).value;
   }
 
   onRowSelect(event: any): void {
-    console.log(event.data.name);
+    this.selectedRowItem = event.data;
+  }
+
+  handleButtonClick(): void{
+    this.router.navigate(['/dish',  this.selectedRowItem.id]);
   }
 
 }

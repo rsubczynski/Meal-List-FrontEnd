@@ -5,13 +5,11 @@
       <h3>{{makro.name}}</h3>
     </div>
   </p-header>
-  <h4>WARTOŚCI ODŻYWCZE:</h4>
-  <br>
   <div *ngIf="makro">
+    <h4>WARTOŚCI ODŻYWCZE:</h4>
     <h5>Energia: {{makro.kcal}} kcal</h5>
   </div>
-
-  <p-table [value]="makro">
+  <p-table [value]="tableData">
     <ng-template pTemplate="header">
       <tr>
         <th>Białko</th>

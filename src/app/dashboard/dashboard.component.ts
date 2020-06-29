@@ -1,6 +1,7 @@
 import { DashboardService } from './../services/dashboard/dashboard.service';
 import { Component } from '@angular/core';
 import { DishSummary } from '../entry/DishSummary';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,7 @@ export class DashboardComponent {
     {class: 'ui-button-rounded ui-button-warning'},
     {class: 'ui-button-rounded ui-button-danger'}];
 
-  constructor(private dashboardService: DashboardService) {
+  constructor(private dashboardService: DashboardService, private router: Router) {
     dashboardService.getDishSummary().subscribe(data => {
       this.dataChart = dashboardService.sortList(data);
       this.data = {
@@ -45,7 +46,7 @@ export class DashboardComponent {
   handleRandomClick(categoryEnum: string): void {
     this.dashboardService.getRandomDishId(categoryEnum)
     .subscribe(
-      id => console.log(id),
+      id => this.router.navigate(['/dish',  id]),
       error => console.log(console.log(error)
       )
     );

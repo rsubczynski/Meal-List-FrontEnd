@@ -9,13 +9,13 @@ import { Observable } from 'rxjs';
 })
 export class DishService {
 
-  DISH_URL = environment.apiUrl +  'apiV1/dish/7';
+  DISH_URL = environment.apiUrl +  'apiV1/dish/';
 
   constructor(private http: HttpClient) {
     console.log(environment.production);
   }
 
-  getDish(): Observable<Dish> {
-    return this.http.get<Dish>(this.DISH_URL);
+  getDish(id: string): Observable<Dish> {
+    return this.http.get<Dish>(this.DISH_URL + id);
   }
 }

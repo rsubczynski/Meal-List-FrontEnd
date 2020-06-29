@@ -14,7 +14,7 @@ const routes: Routes = [
     data: { page: 'Home page' }
   },
   {
-    path: 'dish',
+    path: 'dish/:id',
     component: DishComponent,
   },
   {

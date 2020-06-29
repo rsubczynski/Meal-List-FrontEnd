@@ -36,14 +36,14 @@
       <tr [pSelectableRow]="rowData">
         <td *ngFor="let col of columns">
           <span class="ui-column-title">{{col.header}}</span>
-          <container-element [ngSwitch]="col.field">
+          <div [ngSwitch]="col.field">
             <div *ngSwitchCase="'name'">{{rowData[col.field]}}</div>
             <div *ngSwitchCase="'type'">{{rowData[col.field]}}</div>
             <div *ngSwitchCase="'protein'">{{rowData[col.field] | gramPipe}}</div>
             <div *ngSwitchCase="'carbohydrate'">{{rowData[col.field] | gramPipe}}</div>
             <div *ngSwitchCase="'fat'">{{rowData[col.field] | gramPipe}}</div>
             <div *ngSwitchCase="'kcal'">{{rowData[col.field] | kcalPipe}}</div>
-          </container-element>
+          </div>
         </td>
       </tr>
     </ng-template>
@@ -51,7 +51,8 @@
   <p-footer>
     Wybrane Danie: <strong>{{select ? select.name : "Nic nie wybrano"}}</strong>
     <div *ngIf="select">
-      <button pButton type="button" label="Pokaż przepis" class="ui-button-rounded ui-button-danger"></button>
+      <button pButton type="button" label="Pokaż przepis" class="ui-button-rounded ui-button-danger"
+      (click)="handleButtonClick()"></button>
     </div>
   </p-footer>
 </p-panel>
