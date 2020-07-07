@@ -1,8 +1,8 @@
-import { DishMakro } from 'src/app/entry/Dish';
 import { DishService } from './../services/components/dish-service/dish.service';
 import { Component } from '@angular/core';
 import { IngredientsDish } from '../entry/IngredientsDish';
 import { ActivatedRoute } from '@angular/router';
+import { DishMakro } from '../entry/DishMakro';
 
 @Component({
   selector: 'app-dish',
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DishComponent {
   ingredients: IngredientsDish[] = [];
-  makro: DishMakro;
+  makro!: DishMakro;
   chartData: any;
   tableData: any[] = [];
   recipe: string[] = [];

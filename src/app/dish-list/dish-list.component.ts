@@ -13,8 +13,7 @@ export class DishListComponent {
   select: any;
   dishes: DishMakro[] = [];
   cols: { field: string; header: string; }[];
-  selectedRowItem = {};
-
+  selectedRowItem!: DishMakro;
   constructor(dishService: DishListService, private router: Router) {
     dishService.getAllMakroDishes().subscribe(data => this.dishes = data);
 
