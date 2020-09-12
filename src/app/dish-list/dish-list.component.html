@@ -38,7 +38,7 @@
           <span class="ui-column-title">{{col.header}}</span>
           <div [ngSwitch]="col.field">
             <div *ngSwitchCase="'name'">{{rowData[col.field]}}</div>
-            <div *ngSwitchCase="'type'">{{rowData[col.field]}}</div>
+            <div *ngSwitchCase="'type'">{{rowData[col.field] | dishTypePipe}}</div>
             <div *ngSwitchCase="'protein'">{{rowData[col.field] | gramPipe}}</div>
             <div *ngSwitchCase="'carbohydrate'">{{rowData[col.field] | gramPipe}}</div>
             <div *ngSwitchCase="'fat'">{{rowData[col.field] | gramPipe}}</div>

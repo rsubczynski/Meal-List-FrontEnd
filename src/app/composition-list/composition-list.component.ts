@@ -1,6 +1,7 @@
 import { ComponentsServiceService } from './../services/components/components-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../entry/Ingredient';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-composition-list',
@@ -9,9 +10,20 @@ import { Ingredient } from '../entry/Ingredient';
 })
 export class CompositionListComponent implements OnInit {
 
+  display = false;
   dishes!: Ingredient[];
   cols: { field: string; header: string; }[];
-  constructor(componentsServiceService: ComponentsServiceService) {
+
+  profileForm = new FormGroup({
+    name: new FormControl(''),
+    protein: new FormControl(''),
+    carbohydrate: new FormControl(''),
+    fat: new FormControl(''),
+    kcal: new FormControl(''),
+  });
+
+  constructor(componentsServiceService: ComponentsServiceService, private ingredientService: 
+  ComponentsServiceService ) {
     componentsServiceService.getAllComponents().subscribe(dupa =>  this.dishes = dupa);
 
     this.cols = [
@@ -19,7 +31,8 @@ export class CompositionListComponent implements OnInit {
       { field: 'protein', header: 'Białko' },
       { field: 'carbohydrate', header: 'Węglowodany' },
       { field: 'fat', header: 'Tłuszcz' },
-      { field: 'kcal', header: 'Kcal' }
+      { field: 'kcal', header: 'Kcal' },
+      { field: 'id', header: 'Akcje' }
     ];
   }
   onRowSelect(event: any): void {
@@ -32,5 +45,18 @@ export class CompositionListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  showDialog(): void {
+    this.display = true;
+}
+
+delateIngredient(id: string): void {
+    this.ingredientService.deleteIngredient(id);
+}
+
+onSubmit(): void {
+  // TODO: Use EventEmitter with form value
+  console.warn(this.profileForm.value);
+}
 
 }

@@ -3,6 +3,7 @@
   <p-header>
     <h2>Lista Składników</h2>
   </p-header>
+
   <p-table #dt [value]="dishes" [columns]="cols" [paginator]="true" [rows]="20" [showCurrentPageReport]="true"
     selectionMode="single" dataKey="name" (onRowSelect)="onRowSelect($event)" [resizableColumns]="true"
     [responsive]="true">
@@ -11,7 +12,7 @@
       <div style="text-align: right">
         <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
         <input type="text" pInputText size="50" placeholder="Wyszukaj"
-          (input)="dt.filterGlobal(convertValue($event), 'contains')" >
+          (input)="dt.filterGlobal(convertValue($event), 'contains')">
       </div>
     </ng-template>
 
@@ -24,7 +25,7 @@
         </th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns" >
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
       <tr [pSelectableRow]="rowData">
         <td *ngFor="let col of columns">
           <span class="ui-column-title">{{col.header}}</span>
@@ -35,10 +36,58 @@
             <div *ngSwitchCase="'carbohydrate'">{{rowData[col.field] | gramPipe}}</div>
             <div *ngSwitchCase="'fat'">{{rowData[col.field] | gramPipe}}</div>
             <div *ngSwitchCase="'kcal'">{{rowData[col.field] | kcalPipe}}</div>
+            <div *ngSwitchCase="'id'">
+              <button type="button" pButton icon="pi pi-pencil" (click)="showDialog()" label="Edytuj"></button> 
+              <button type="button" pButton icon="pi pi-trash" (click)="delateIngredient(rowData[col.field])" label="Usuń"></button>
+            </div>
+
           </container-element>
 
         </td>
       </tr>
     </ng-template>
   </p-table>
+
+  <p-footer>
+    <button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Dodaj składnik"></button>
+  </p-footer>
 </p-panel>
+
+
+<p-dialog header="Dodaj składnik" [(visible)]="display">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label>
+      Nazwa:
+      <br>
+      <input type="text" formControlName="name">
+    </label>
+    <br>
+    <label>
+      Białko:
+      <br>
+      <input type="text" formControlName="protein">
+    </label>
+    <br>
+    <label>
+      Węglowodany:
+      <br>
+      <input type="text" formControlName="carbohydrate">
+    </label>
+    <br>
+    <label>
+      Tłuszcz:
+      <br>
+      <input type="text" formControlName="fat">
+    </label>
+    <br>
+    <label>
+      Kcal:
+      <br>
+      <input type="text" formControlName="kcal">
+    </label>
+    <br>
+
+    <button type="submit" [disabled]="!profileForm.valid">Dodaj</button>
+  </form>
+</p-dialog>

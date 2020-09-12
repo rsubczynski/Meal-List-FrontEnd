@@ -1,3 +1,4 @@
+import { DishPipePipe } from './pipes/dish-type-pipe.pipe';
 import { KcalPipe } from './pipes/kcal-pipe.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -23,7 +24,8 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import { CompositionListComponent } from './composition-list/composition-list.component';
 import { DishCreatorComponent } from './dish-creator/dish-creator.component';
 import {AutoCompleteModule} from 'primeng/autocomplete';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {DialogModule} from 'primeng/dialog';
 
 
 
@@ -38,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     GramPipePipe,
     KcalPipe,
     CompositionListComponent,
-    DishCreatorComponent  ],
+    DishCreatorComponent,
+    DishPipePipe  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -51,9 +54,10 @@ import { FormsModule } from '@angular/forms';
     TableModule,
     PanelModule,
     ButtonModule,
+    DialogModule,
     MultiSelectModule,
-    AutoCompleteModule
-  ],
+    AutoCompleteModule,
+    ReactiveFormsModule  ],
   providers: [],
   bootstrap: [AppComponent]
 })
