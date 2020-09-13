@@ -19,8 +19,7 @@ export class ComponentsServiceService {
     return this.http.get<Ingredient[]>(this.ALL_COMPONENTS_LIST);
   }
 
-  deleteIngredient(id: string): void {
-    console.log("dupa");
-    this.http.delete(this.ALL_COMPONENTS_LIST + "/" + id);
+  deleteIngredient(id: string): Observable<{}>{
+    return this.http.delete(this.ALL_COMPONENTS_LIST + '/' + id);
   }
 }

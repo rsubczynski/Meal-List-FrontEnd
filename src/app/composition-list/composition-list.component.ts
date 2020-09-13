@@ -22,9 +22,9 @@ export class CompositionListComponent implements OnInit {
     kcal: new FormControl(''),
   });
 
-  constructor(componentsServiceService: ComponentsServiceService, private ingredientService: 
+  constructor(private componentsServiceService: ComponentsServiceService, private ingredientService:
   ComponentsServiceService ) {
-    componentsServiceService.getAllComponents().subscribe(dupa =>  this.dishes = dupa);
+    this.updateDishesTable();
 
     this.cols = [
       { field: 'name', header: 'Nazwa' },
@@ -35,6 +35,11 @@ export class CompositionListComponent implements OnInit {
       { field: 'id', header: 'Akcje' }
     ];
   }
+
+  updateDishesTable(): void{
+    this.componentsServiceService.getAllComponents().subscribe(result =>  this.dishes = result);
+  }
+
   onRowSelect(event: any): void {
     console.log(event.data);
   }
@@ -51,7 +56,7 @@ export class CompositionListComponent implements OnInit {
 }
 
 delateIngredient(id: string): void {
-    this.ingredientService.deleteIngredient(id);
+    this.ingredientService.deleteIngredient(id).subscribe(() => this.updateDishesTable());
 }
 
 onSubmit(): void {
