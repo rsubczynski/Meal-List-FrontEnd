@@ -2,15 +2,18 @@
   <p-header>
     <h3>Aplikaja przechowuje dania które miałem na diecie, obecnie w bazie jest :</h3>
   </p-header>
-    <p-chart type="pie" [data]="data" height="20vh"></p-chart>
+  <p-chart type="pie" [data]="data" height="20vh"></p-chart>
 
-    <div *ngFor="let row of dataChart">
-      <strong>{{row.name}}:</strong> {{row.count}}<br>
-    </div>
+  <div *ngFor="let row of dataChart">
+    <strong>{{row.name}}:</strong> {{row.count}}<br>
+  </div>
   <p-footer>
     <strong>Losowanie</strong>
     <td *ngFor="let row of dataChart; index as i">
-      <p-button  label={{row.name}} (onClick)="handleRandomClick(row.categoryEnum)" [styleClass]="buttonColoursClass[i].class" ></p-button>
+      <div *ngIf="row.count > 0">
+        <p-button label={{row.name}} (onClick)="handleRandomClick(row.categoryEnum)"
+          [styleClass]="buttonColoursClass[i].class"></p-button>
+      </div>
     </td>
 
   </p-footer>

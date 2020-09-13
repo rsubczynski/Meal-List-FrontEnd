@@ -58,7 +58,7 @@ import {DialogModule} from 'primeng/dialog';
     MultiSelectModule,
     AutoCompleteModule,
     ReactiveFormsModule  ],
-  providers: [],
+  providers: [DishPipePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

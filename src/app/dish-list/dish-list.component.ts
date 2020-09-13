@@ -2,6 +2,7 @@ import { DishListService } from './../services/dish-list-service/dishList.servic
 import { DishMakro } from '../entry/DishMakro';
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import { DishPipePipe } from '../pipes/dish-type-pipe.pipe';
 
 @Component({
   selector: 'app-dish-list',
@@ -14,8 +15,11 @@ export class DishListComponent {
   dishes: DishMakro[] = [];
   cols: { field: string; header: string; }[];
   selectedRowItem!: DishMakro;
-  constructor(dishService: DishListService, private router: Router) {
-    dishService.getAllMakroDishes().subscribe(data => this.dishes = data);
+  constructor(dishService: DishListService, private router: Router, private dishTypePipe: DishPipePipe) {
+    dishService.getAllMakroDishes().subscribe(data => {
+      data.forEach(item => item.type = dishTypePipe.transform(item.type));
+      this.dishes = data;
+    });
 
 
     this.cols = [
