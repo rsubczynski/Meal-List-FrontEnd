@@ -13,6 +13,9 @@ export class CompositionListComponent implements OnInit {
   display = false;
   dishes!: Ingredient[];
   cols: { field: string; header: string; }[];
+  displayBasic2 = false;
+  ingredientToDelete!: Ingredient;
+
 
   profileForm = new FormGroup({
     name: new FormControl(''),
@@ -55,13 +58,29 @@ export class CompositionListComponent implements OnInit {
     this.display = true;
 }
 
-delateIngredient(id: string): void {
-    this.ingredientService.deleteIngredient(id).subscribe(() => this.updateDishesTable());
+delateIngredient(): void {
+    this.displayBasic2 = true;
+    this.ingredientService.deleteIngredient(this.ingredientToDelete.id)
+      .subscribe(() => {
+        this.updateDishesTable();
+        this.displayBasic2 = false;
+      },
+      () => {
+        //TODO: fix in future;
+        console.log("gdzies używane");
+        this.displayBasic2 = false;
+      }
+      );
 }
 
 onSubmit(): void {
   // TODO: Use EventEmitter with form value
   console.warn(this.profileForm.value);
+}
+
+showDelateDialog(ingredient: Ingredient): void {
+  this.ingredientToDelete = ingredient;
+  this.displayBasic2 = true;
 }
 
 }

@@ -37,9 +37,10 @@
             <div *ngSwitchCase="'fat'">{{rowData[col.field] | gramPipe}}</div>
             <div *ngSwitchCase="'kcal'">{{rowData[col.field] | kcalPipe}}</div>
             <div *ngSwitchCase="'id'">
-              <p-button type="button"  label="Edytuj"></p-button>
+              <p-button type="button" label="Edytuj"></p-button>
               <span>&nbsp;&nbsp;</span>
-              <p-button type="button"  (click)="delateIngredient(rowData[col.field])" label="Usuń"></p-button>
+              <!-- <p-button type="button"  (click)="delateIngredient(rowData[col.field])" label="Usuń"></p-button> -->
+              <p-button type="button" (click)="showDelateDialog(rowData)" label="Usuń"></p-button>
             </div>
 
           </container-element>
@@ -91,4 +92,14 @@
 
     <button type="submit" [disabled]="!profileForm.valid">Dodaj</button>
   </form>
+</p-dialog>
+
+<p-dialog header="Usuń Składnik" [(visible)]="displayBasic2" [style]="{width: '50vw'}" [baseZIndex]="10000">
+  <div *ngIf="ingredientToDelete">
+    Czy napewno chcesz usunąć {{ingredientToDelete.name}} ??
+  </div>
+  <p-footer>
+    <button type="button" pButton (click)="delateIngredient()" label="Yes"></button>
+    <button type="button" pButton (click)="displayBasic2=false" label="No" class="ui-button-secondary"></button>
+  </p-footer>
 </p-dialog>
