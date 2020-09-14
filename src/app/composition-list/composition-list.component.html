@@ -37,8 +37,9 @@
             <div *ngSwitchCase="'fat'">{{rowData[col.field] | gramPipe}}</div>
             <div *ngSwitchCase="'kcal'">{{rowData[col.field] | kcalPipe}}</div>
             <div *ngSwitchCase="'id'">
-              <button type="button" pButton icon="pi pi-pencil" (click)="showDialog()" label="Edytuj"></button> 
-              <button type="button" pButton icon="pi pi-trash" (click)="delateIngredient(rowData[col.field])" label="Usuń"></button>
+              <p-button type="button"  label="Edytuj"></p-button>
+              <span>&nbsp;&nbsp;</span>
+              <p-button type="button"  (click)="delateIngredient(rowData[col.field])" label="Usuń"></p-button>
             </div>
 
           </container-element>
@@ -49,7 +50,7 @@
   </p-table>
 
   <p-footer>
-    <button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Dodaj składnik"></button>
+    <p-button type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Dodaj składnik"></p-button>
   </p-footer>
 </p-panel>
 
